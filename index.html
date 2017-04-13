@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <title>迷宫路径</title>
+    <script src="findOptPath.js"></script>
+</head>
+<body>
+<span>请打开控制台 -></span>
+<PRE>
+ /** 迷宫以如下二维数组表示，其中1代表可以走通的路径，0代表障碍无法通过。
+ *   没有来的及编写随机生成迷宫的算法，只以5*5迷宫做演示。
+ *    mazeData = [
+ *       [1, 0, 0, 0, 0],
+ *       [1, 1, 0, 1, 0],
+ *       [0, 1, 0, 1, 0],
+ *       [0, 1, 1, 1, 1],
+ *       [0, 0, 0, 0, 1]
+ *      ];
+ */
+</PRE>
+<script>
+    // 迷宫信息
+    mazeData = [
+        [1, 0, 0, 0, 0],
+        [1, 1, 0, 1, 0],
+        [0, 1, 0, 1, 0],
+        [0, 1, 1, 1, 1],
+        [0, 0, 0, 0, 1]
+    ];
+    let begin = [0, 0];
+    let end = [4, 4];
+    let path = findOptPath(mazeData, begin, end);
+    let pathStr = '';
+    if (path) {
+        while (path) { // 打印路径到控制台
+            pathStr += `[${path.val}]-> `;
+            path = path.pre;
+        }
+        console.log(`最短路径为: ${pathStr}`);
+    } else {
+        console.log('没有找到出口');
+    }
+
+</script>
+<style type="text/css">
+    body{
+        padding: 50px 0 0 50px ;
+    }
+    span{
+        font-size: 40px;
+        background-color: #a0a0a0;
+    }
+
+</style>
+</body>
+</html> 
