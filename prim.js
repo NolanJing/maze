@@ -222,11 +222,11 @@ Maze.prototype.Animation = function () {
             cell.setAttribute("class", "path");
             count++
         } else {
-            clearInterval(sh);
+            clearInterval(temp);
             console.log('finded the path')
         }
     }
-    let tem = setInterval(animation, this.speed, this.path);
+    let temp = setInterval(animation, this.speed, this.path);
 };
 
 Maze.prototype.init = function () {
